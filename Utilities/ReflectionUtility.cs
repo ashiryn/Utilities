@@ -18,20 +18,20 @@ public static class ReflectionUtility
     /// <typeparam name="TAttributeType">The type of attribute to find within the loaded assemblies</typeparam>
     /// <returns>An enumerable list of found classes with the attribute assigned</returns>
     public static IEnumerable<Type> GetAttributedClasses<TAttributeType>(
-        bool inherit, string namespaceFilter = "")
+        bool inherit, string? namespaceFilter = null)
         where TAttributeType : Attribute
     {
         bool isFiltering = !string.IsNullOrEmpty(namespaceFilter);
         IEnumerable<Type> foundTypes =
             from a in AppDomain.CurrentDomain.GetAssemblies()
-            from t in a?.GetTypes()?.Where(x => namespaceFilter != null &&
-                                                x.IsClass &&
-                                                (!isFiltering ||
-                                                 (!string
-                                                      .IsNullOrEmpty(x
-                                                          .Namespace) &&
-                                                  x.Namespace
-                                                   .StartsWith(namespaceFilter))))
+            from t in a.GetTypes().Where(x => namespaceFilter != null &&
+                                              x.IsClass &&
+                                              (!isFiltering ||
+                                               (!string
+                                                    .IsNullOrEmpty(x
+                                                        .Namespace) &&
+                                                x.Namespace
+                                                 .StartsWith(namespaceFilter))))
             let attributes =
                 t?.GetCustomAttributes(typeof(TAttributeType), inherit) as
                     TAttributeType[]
@@ -58,20 +58,20 @@ public static class ReflectionUtility
     /// <typeparam name="TAttributeType">The type of attribute to find within the loaded assemblies</typeparam>
     /// <returns>An enumerable list of found attribute instances</returns>
     public static IEnumerable<TAttributeType> GetAttributes<TAttributeType>(
-        bool inherit, string namespaceFilter = "")
+        bool inherit, string? namespaceFilter = null)
         where TAttributeType : Attribute
     {
         bool isFiltering = !string.IsNullOrEmpty(namespaceFilter);
         IEnumerable<TAttributeType[]> foundTypes =
             from a in AppDomain.CurrentDomain.GetAssemblies()
-            from t in a?.GetTypes()?.Where(x => namespaceFilter != null &&
-                                                x.IsClass &&
-                                                (!isFiltering ||
-                                                 (!string
-                                                      .IsNullOrEmpty(x
-                                                          .Namespace) &&
-                                                  x.Namespace
-                                                   .StartsWith(namespaceFilter))))
+            from t in a.GetTypes().Where(x => namespaceFilter != null &&
+                                              x.IsClass &&
+                                              (!isFiltering ||
+                                               (!string
+                                                    .IsNullOrEmpty(x
+                                                        .Namespace) &&
+                                                x.Namespace
+                                                 .StartsWith(namespaceFilter))))
             let attributes =
                 t?.GetCustomAttributes(typeof(TAttributeType), inherit) as
                     TAttributeType[]
@@ -275,7 +275,7 @@ public static class ReflectionUtility
     /// <param name="namespaceFilter">Optional namespace to find the type within</param>
     /// <returns>True if the type was found, otherwise false</returns>
     public static bool TryGetTypeFromName(string typeName, out Type? result,
-                                          string namespaceFilter = null)
+                                          string? namespaceFilter = null)
     {
         foreach (Type currentType in from assembly in AppDomain.CurrentDomain
                                          .GetAssemblies()
