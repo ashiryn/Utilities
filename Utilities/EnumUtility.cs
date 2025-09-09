@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace FluffyVoid.Utilities;
 
-public static class EnumUtility
+public static partial class EnumUtility
 {
     /// <summary>
     ///     Parses an Enum to find a match by comparing a passed in string to either the Description Attribute, or name of each

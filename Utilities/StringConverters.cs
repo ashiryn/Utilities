@@ -1,6 +1,6 @@
 namespace FluffyVoid.Utilities;
 
-public static class StringConverters
+public static partial class StringUtility
 {
     /// <summary>
     ///     Converts a string into an array of bytes
@@ -23,26 +23,6 @@ public static class StringConverters
         return result;
     }
     /// <summary>
-    ///     Converts a string into an array of SBytes
-    /// </summary>
-    /// <param name="value">The string to convert</param>
-    /// <returns>An array of SBytes if the conversion was successful, otherwise default(sbyte[])</returns>
-    public static sbyte[]? ToSbyteArray(this string[] value)
-    {
-        if (value.Length <= 0)
-        {
-            return null;
-        }
-
-        sbyte[] result = new sbyte[value.Length];
-        for (int i = 0; i < value.Length; ++i)
-        {
-            result[i] = value[i].ToSbyte();
-        }
-
-        return result;
-    }
-    /// <summary>
     ///     Converts a string into an array of chars
     /// </summary>
     /// <param name="value">The string to convert</param>
@@ -58,6 +38,26 @@ public static class StringConverters
         for (int i = 0; i < value.Length; ++i)
         {
             result[i] = value[i].ToChar();
+        }
+
+        return result;
+    }
+    /// <summary>
+    ///     Converts a string into an array of SBytes
+    /// </summary>
+    /// <param name="value">The string to convert</param>
+    /// <returns>An array of SBytes if the conversion was successful, otherwise default(sbyte[])</returns>
+    public static sbyte[]? ToSbyteArray(this string[] value)
+    {
+        if (value.Length <= 0)
+        {
+            return null;
+        }
+
+        sbyte[] result = new sbyte[value.Length];
+        for (int i = 0; i < value.Length; ++i)
+        {
+            result[i] = value[i].ToSbyte();
         }
 
         return result;
