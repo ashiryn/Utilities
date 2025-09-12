@@ -24,7 +24,7 @@ public static class ReflectionUtility
         bool isFiltering = !string.IsNullOrEmpty(namespaceFilter);
         IEnumerable<Type> foundTypes =
             from a in AppDomain.CurrentDomain.GetAssemblies()
-            from t in a?.GetTypes()?.Where(x => namespaceFilter != null &&
+            from t in a.GetTypes().Where(x => namespaceFilter != null &&
                                                 x.IsClass &&
                                                 (!isFiltering ||
                                                  (!string
@@ -64,7 +64,7 @@ public static class ReflectionUtility
         bool isFiltering = !string.IsNullOrEmpty(namespaceFilter);
         IEnumerable<TAttributeType[]> foundTypes =
             from a in AppDomain.CurrentDomain.GetAssemblies()
-            from t in a?.GetTypes()?.Where(x => namespaceFilter != null &&
+            from t in a.GetTypes().Where(x => namespaceFilter != null &&
                                                 x.IsClass &&
                                                 (!isFiltering ||
                                                  (!string
@@ -275,7 +275,7 @@ public static class ReflectionUtility
     /// <param name="namespaceFilter">Optional namespace to find the type within</param>
     /// <returns>True if the type was found, otherwise false</returns>
     public static bool TryGetTypeFromName(string typeName, out Type? result,
-                                          string namespaceFilter = null)
+                                          string? namespaceFilter = null)
     {
         foreach (Type currentType in from assembly in AppDomain.CurrentDomain
                                          .GetAssemblies()
