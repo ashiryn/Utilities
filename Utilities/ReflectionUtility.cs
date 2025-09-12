@@ -25,13 +25,13 @@ public static class ReflectionUtility
         IEnumerable<Type> foundTypes =
             from a in AppDomain.CurrentDomain.GetAssemblies()
             from t in a.GetTypes().Where(x => namespaceFilter != null &&
-                                              x.IsClass &&
-                                              (!isFiltering ||
-                                               (!string
-                                                    .IsNullOrEmpty(x
-                                                        .Namespace) &&
-                                                x.Namespace
-                                                 .StartsWith(namespaceFilter))))
+                                                x.IsClass &&
+                                                (!isFiltering ||
+                                                 (!string
+                                                      .IsNullOrEmpty(x
+                                                          .Namespace) &&
+                                                  x.Namespace
+                                                   .StartsWith(namespaceFilter))))
             let attributes =
                 t?.GetCustomAttributes(typeof(TAttributeType), inherit) as
                     TAttributeType[]
@@ -65,13 +65,13 @@ public static class ReflectionUtility
         IEnumerable<TAttributeType[]> foundTypes =
             from a in AppDomain.CurrentDomain.GetAssemblies()
             from t in a.GetTypes().Where(x => namespaceFilter != null &&
-                                              x.IsClass &&
-                                              (!isFiltering ||
-                                               (!string
-                                                    .IsNullOrEmpty(x
-                                                        .Namespace) &&
-                                                x.Namespace
-                                                 .StartsWith(namespaceFilter))))
+                                                x.IsClass &&
+                                                (!isFiltering ||
+                                                 (!string
+                                                      .IsNullOrEmpty(x
+                                                          .Namespace) &&
+                                                  x.Namespace
+                                                   .StartsWith(namespaceFilter))))
             let attributes =
                 t?.GetCustomAttributes(typeof(TAttributeType), inherit) as
                     TAttributeType[]
