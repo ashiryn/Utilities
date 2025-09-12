@@ -18,7 +18,7 @@ public static class ReflectionUtility
     /// <typeparam name="TAttributeType">The type of attribute to find within the loaded assemblies</typeparam>
     /// <returns>An enumerable list of found classes with the attribute assigned</returns>
     public static IEnumerable<Type> GetAttributedClasses<TAttributeType>(
-        bool inherit, string namespaceFilter = "")
+        bool inherit, string? namespaceFilter = null)
         where TAttributeType : Attribute
     {
         bool isFiltering = !string.IsNullOrEmpty(namespaceFilter);
@@ -58,7 +58,7 @@ public static class ReflectionUtility
     /// <typeparam name="TAttributeType">The type of attribute to find within the loaded assemblies</typeparam>
     /// <returns>An enumerable list of found attribute instances</returns>
     public static IEnumerable<TAttributeType> GetAttributes<TAttributeType>(
-        bool inherit, string namespaceFilter = "")
+        bool inherit, string? namespaceFilter = null)
         where TAttributeType : Attribute
     {
         bool isFiltering = !string.IsNullOrEmpty(namespaceFilter);
