@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <LangVersion>latestmajor</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
@@ -14,21 +14,26 @@
         <RepositoryUrl>https://github.com/ashiryn/Utilities</RepositoryUrl>
         <Company>FluffyVoid</Company>
         <Product>FluffyVoid.Utilities</Product>
-        <AssemblyVersion>1.0.2</AssemblyVersion>
-        <FileVersion>1.0.2</FileVersion>
-        <Version>1.0.2</Version>
+        <AssemblyVersion>1.0.3</AssemblyVersion>
+        <FileVersion>1.0.3</FileVersion>
+        <Version>1.0.3</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <DocumentationFile>bin\Debug\Utilities.xml</DocumentationFile>
+      <DocumentationFile>bin/Debug/FluffyVoid.Utilities.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <DocumentationFile>bin\Release\Utilities.xml</DocumentationFile>
+      <DocumentationFile>bin/Release/FluffyVoid.Utilities.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
     </ItemGroup>
-
+	<ItemGroup>
+        <None Include="bin/$(Configuration)/FluffyVoid.Utilities.xml" Pack="true">
+            <PackageCopyToOutput>true</PackageCopyToOutput>
+            <PackageFlatten>true</PackageFlatten>
+        </None>
+	</ItemGroup>
 </Project>
