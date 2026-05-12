@@ -14,26 +14,26 @@
         <RepositoryUrl>https://github.com/ashiryn/Utilities</RepositoryUrl>
         <Company>FluffyVoid</Company>
         <Product>FluffyVoid.Utilities</Product>
-        <AssemblyVersion>1.0.3</AssemblyVersion>
-        <FileVersion>1.0.3</FileVersion>
-        <Version>1.0.3</Version>
+        <AssemblyVersion>1.0.4</AssemblyVersion>
+        <FileVersion>1.0.4</FileVersion>
+        <Version>1.0.4</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <DocumentationFile>bin/Debug/FluffyVoid.Utilities.xml</DocumentationFile>
+        <DocumentationFile>bin/Debug/FluffyVoid.Utilities.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <DocumentationFile>bin/Release/FluffyVoid.Utilities.xml</DocumentationFile>
+        <DocumentationFile>bin/Release/FluffyVoid.Utilities.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.4"/>
     </ItemGroup>
-	<ItemGroup>
+    <ItemGroup>
         <None Include="bin/$(Configuration)/FluffyVoid.Utilities.xml" Pack="true">
             <PackageCopyToOutput>true</PackageCopyToOutput>
             <PackageFlatten>true</PackageFlatten>
         </None>
-	</ItemGroup>
+    </ItemGroup>
 </Project>
